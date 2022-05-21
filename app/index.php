@@ -108,6 +108,12 @@ for(let i = 5; i < 30; ++i){
     document.getElementById(parseInt(inputLists[i].id)).readOnly = true;
 }
 
+function moveCursor(id){
+    if(document.getElementById(id).value.length == 1 && id < 30) {
+        document.getElementById(id + 1).focus();
+    }
+}
+
 document.addEventListener('keyup', (event) => {
     let name = event.key;
     let code = event.code;
@@ -119,15 +125,20 @@ document.addEventListener('keyup', (event) => {
         if(parseInt(document.activeElement.id) - 1 > 0){
             document.getElementById(parseInt(document.activeElement.id) - 1).focus();
         }
+        return;
     }
 
-    let temp = inputLists[enterPointer].value.length;
+    let check = 1;
+    for(let i = enterPointer - 4; i <= enterPointer; ++i){
+        if(inputLists[i].value.length == 0 || !(/[a-zA-Z]/).test(inputLists[i].value)){
+            check = 0;
+            break;
+        }
+    }
 
-    if(temp != 0){
+    if(check){
         let winCounter = 0;
         for(let i = enterPointer - 4; i <= enterPointer; ++i){
-            // check if real word
-
             document.getElementById(parseInt(inputLists[i].id)).readOnly = true;
             document.getElementById(parseInt(inputLists[i].id)).style.backgroundColor = "rgb(150, 150, 150)";
             document.getElementById(parseInt(inputLists[i].id)).style.transition = "all .3s ease";
@@ -166,18 +177,14 @@ document.addEventListener('keyup', (event) => {
 
         moveCursor(enterPointer + 1);
         for(let i = enterPointer + 1; i <= enterPointer + 5; ++i){
-            console.log(document.getElementById(parseInt(inputLists[i].id)));
             document.getElementById(parseInt(inputLists[i].id)).readOnly = false;
         }
         enterPointer += 5;
     }
+    else{
+        alert("Try again!");
+    }
 
 }, false);
-
-function moveCursor(id){
-    if(document.getElementById(id).value.length == 1 && id < 30) {
-        document.getElementById(id + 1).focus();
-    }
-}
 
 </script>
