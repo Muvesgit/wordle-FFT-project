@@ -91,6 +91,34 @@
 </html>
 
 <script>
+const getJSON = async function() {
+    return await fetch('https://random-word-api.herokuapp.com/word')
+        .then((response)=>response.json())
+        .then((responseJson)=>{return responseJson[0]});
+}
+
+while(true){
+    let word = getJSON();
+
+    console.log(word);
+    if(word.length == 5){
+        for(let i=0; i<5; ++i){
+            for(let j=i; j<5; ++j){
+                if(data[i] == data[j]){
+                    ok = 0;
+                }
+            }
+        }
+    }
+    else{
+        ok = 0;
+    }
+    if(ok == 1){
+        break;
+    }
+    break;
+}
+
 secretWord = ["S","P","E","A","R"];
 
 row0 = Array.from(document.getElementsByClassName("row")[0].children);
