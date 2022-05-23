@@ -8,6 +8,14 @@
 </head>
 
 <body>
+    <header>
+        <img src="src/wordlelogo.png">
+        <h1>?</h1>
+        <div class="hiddenhelp">
+            <img src="src/howto.png">
+        </div>
+    </header>
+
     <div class="maincontainer">
         <div class="row">
             <input id="1" type="text" maxlength="1" oninput="this.value = this.value.toUpperCase(); moveCursor(1);">
@@ -91,33 +99,42 @@
 </html>
 
 <script>
-const getJSON = async function() {
-    return await fetch('https://random-word-api.herokuapp.com/word')
-        .then((response)=>response.json())
-        .then((responseJson)=>{return responseJson[0]});
-}
+// const getJSON = function() {
+//     return fetch('https://random-word-api.herokuapp.com/word')
+//         .then((response) => response.json())
+// }
 
-while(true){
-    let word = getJSON();
+// var ok = 1;
 
-    console.log(word);
-    if(word.length == 5){
-        for(let i=0; i<5; ++i){
-            for(let j=i; j<5; ++j){
-                if(data[i] == data[j]){
-                    ok = 0;
-                }
-            }
-        }
-    }
-    else{
-        ok = 0;
-    }
-    if(ok == 1){
-        break;
-    }
-    break;
-}
+// while(true){
+//     let word = fetch('https://random-word-api.herokuapp.com/word')
+//             .then((response) => {response.json();})
+//             .then((data) => {return data})
+//     let ok;
+
+//     console.log(word);
+
+//     if(word.length == 5){
+//         for(let i=0; i<5; ++i){
+//             for(let j=i; j<5; ++j){
+//                 if(data[i] == data[j]){
+//                     ok = 0;
+//                 }
+//             }
+//         }
+//         ok = 1;
+//     }
+//     else{
+//         ok = 0;
+//     }
+
+//     console.log(ok);
+
+//     if(ok == 1){
+//         break;
+//     }
+//     break;
+// }
 
 secretWord = ["S","P","E","A","R"];
 
