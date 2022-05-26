@@ -95,46 +95,53 @@
             <div id="M">M</div>
         </div>
     </div>
+
+    <input type="hidden" id="hiddenElement">
 </body>
 </html>
 
 <script>
-// const getJSON = function() {
-//     return fetch('https://random-word-api.herokuapp.com/word')
-//         .then((response) => response.json())
-// }
+const request = async () => {
+    const response = await fetch('https://random-word-api.herokuapp.com/word');
+    const json = await response.json();
+    console.log(json);
+}
 
-// var ok = 1;
+request();
 
-// while(true){
-//     let word = fetch('https://random-word-api.herokuapp.com/word')
-//             .then((response) => {response.json();})
-//             .then((data) => {return data})
-//     let ok;
+var ok = 1;
 
-//     console.log(word);
+while(true){
+    // fetch('https://random-word-api.herokuapp.com/word')
+    //     .then((response) => {
+    //     return response.json();
+    //     })
+    //     .then((data) => {
+    //     let word = data;
 
-//     if(word.length == 5){
-//         for(let i=0; i<5; ++i){
-//             for(let j=i; j<5; ++j){
-//                 if(data[i] == data[j]){
-//                     ok = 0;
-//                 }
-//             }
-//         }
-//         ok = 1;
-//     }
-//     else{
-//         ok = 0;
-//     }
+    //     // console.log(word[0]);
+    //     document.getElementById("hiddenElement").value = word[0];
+    //     // word.map(function(author) {
 
-//     console.log(ok);
+    //     // });
+    // })
 
-//     if(ok == 1){
-//         break;
-//     }
-//     break;
-// }
+    console.log(document.getElementById("hiddenElement").value);
+
+    // if(word.length == 5){
+    //     ok = 1;
+    // }
+    // else{
+    //     ok = 0;
+    // }
+
+    // console.log(ok);
+
+    // if(ok == 1){
+    //     break;
+    // }
+    break;
+}
 
 secretWord = ["S","P","E","A","R"];
 
