@@ -16,6 +16,10 @@
         </div>
     </header>
 
+    <div id="pleaseWait" class="pleaseWait">
+        <h1>Please wait...</h1>
+    </div>
+
     <div class="maincontainer">
         <div class="row">
             <input id="1" type="text" maxlength="1" oninput="this.value = this.value.toUpperCase(); moveCursor(1);">
@@ -96,54 +100,35 @@
         </div>
     </div>
 
-    <input type="hidden" id="hiddenElement">
 </body>
 </html>
 
 <script>
+var wordSave = "";
+var secretWord;
+
 const request = async () => {
-    const response = await fetch('https://random-word-api.herokuapp.com/word');
-    const json = await response.json();
-    console.log(json);
+    while(true){
+        const response = await fetch('https://random-word-api.herokuapp.com/word');
+        const word = await response.json();
+        let ok = 1;
+
+        if(word[0].length == 5){
+            // console.log(word[0]);
+            wordSave = word[0];
+            document.getElementById("pleaseWait").style.display = "none";
+
+            secretWord = Array.from(wordSave.toUpperCase());
+            // console.log(secretWord);
+            break;
+        }
+        // else{
+        //     console.log(word[0].length);
+        // }
+    }
 }
 
 request();
-
-var ok = 1;
-
-while(true){
-    // fetch('https://random-word-api.herokuapp.com/word')
-    //     .then((response) => {
-    //     return response.json();
-    //     })
-    //     .then((data) => {
-    //     let word = data;
-
-    //     // console.log(word[0]);
-    //     document.getElementById("hiddenElement").value = word[0];
-    //     // word.map(function(author) {
-
-    //     // });
-    // })
-
-    console.log(document.getElementById("hiddenElement").value);
-
-    // if(word.length == 5){
-    //     ok = 1;
-    // }
-    // else{
-    //     ok = 0;
-    // }
-
-    // console.log(ok);
-
-    // if(ok == 1){
-    //     break;
-    // }
-    break;
-}
-
-secretWord = ["S","P","E","A","R"];
 
 row0 = Array.from(document.getElementsByClassName("row")[0].children);
 row1 = Array.from(document.getElementsByClassName("row")[1].children);

@@ -26,6 +26,7 @@ header h1{
 .hiddenhelp{
     display: none;
     position: absolute;
+    z-index: 10;
     margin-top: 50px;
 }
 
@@ -80,4 +81,23 @@ header h1:hover + .hiddenhelp{
     color: white;
     font-size: 20px;
     font-weight: 600;
+}
+
+.pleaseWait{
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    z-index: 5;
+    background-color: rgb(44, 44, 44);
+    border: solid 1px rgb(255, 255, 255);
+    display: grid;
+    align-items: center;
+    transition: all .3s ease;
+    margin-left: 26.5vw;
+}
+
+.pleaseWait h1{
+    font-size: 30px;
+    color: white;
+    text-align: center;
 }
