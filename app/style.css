@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*{
+    font-family: 'Roboto Condensed';
+
+}
+
+input{
+    font-family: 'Roboto Condensed';
+}
+
 body{
-    background-color: rgb(45, 66, 99);
-    font-family: 'Neuton';
+    /* background-color: rgb(45, 66, 99); */
+    background-image: url("./src/tealbg4_1684665740716.png");
+    margin: 0;
+    padding: 0;
 }
 
 header{
-    background-color: rgb(45, 66, 99);
+    background-color: #29b5ff;
     width: 100%;
     height: 50px;
     border-bottom: 1px solid white;
@@ -38,8 +51,20 @@ header h1:hover + .hiddenhelp{
     height: 500px;
 }
 
-.maincontainer, .keyboardcontainer{
-    background-color: rgb(60, 88, 133);
+.maincontainer{
+    background-color: #29b5ff;
+    width: 45%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+}
+
+.keyboardcontainer{
+    background-color: #29b5ff;
     width: 45%;
     height: auto;
     margin-left: auto;
@@ -64,7 +89,6 @@ header h1:hover + .hiddenhelp{
     border: solid 1px #ccc;
     border-radius: 10px;
     transition: all .3s ease;
-    font-family: 'Neuton';
 }
 
 /* keyboard keys */
@@ -74,13 +98,16 @@ header h1:hover + .hiddenhelp{
     text-align: center;
     width: 50px;
     height: 50px;
-    background-color: rgb(49, 49, 49);
+    background-color: #1c83bb;
     margin-right: 10px;
     margin-top: 10px;
     border: solid 1px rgb(255, 255, 255);
     color: white;
     font-size: 20px;
     font-weight: 600;
+    transition: all .3s ease;
+    cursor: pointer;
+
 }
 
 .pleaseWait{
